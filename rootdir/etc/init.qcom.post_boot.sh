@@ -1326,6 +1326,10 @@ case "$target" in
 	do
 		echo 30 > $gpu_bimc_guard_band_mbps
 	done
+        #disable LPM temporarily to unblock testing
+	if [ "$ProductName" == "msm8909w" ]; then
+		echo 1 > /sys/module/lpm_levels/parameters/sleep_disabled
+	fi
 	;;
 esac
 
