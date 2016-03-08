@@ -132,7 +132,7 @@ BT := javax.btobex
 BT += libattrib_static
 BT += hcidump.sh
 BT += libbt-vendor
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/common
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(BOARD_COMMON_DIR)
 
 #C2DColorConvert
 C2DCC := libc2dcolorconvert
@@ -812,13 +812,13 @@ endif
 
 # gps/location secuity configuration file
 PRODUCT_COPY_FILES += \
-    device/qcom/common/sec_config:system/etc/sec_config
+    $(BOARD_COMMON_DIR)/sec_config:system/etc/sec_config
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    device/qcom/common/media/media_profiles.xml:system/etc/media_profiles.xml \
-    device/qcom/common/media/media_codecs.xml:system/etc/media_codecs.xml
+    $(BOARD_COMMON_DIR)/media/media_profiles.xml:system/etc/media_profiles.xml \
+    $(BOARD_COMMON_DIR)/media/media_codecs.xml:system/etc/media_codecs.xml
 
 ifneq ($(TARGET_SUPPORTS_WEARABLES),true)
 PRODUCT_COPY_FILES += \
@@ -827,11 +827,11 @@ endif
 
 # enable overlays to use our version of
 # source/resources etc.
-DEVICE_PACKAGE_OVERLAYS += device/qcom/common/device/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/qcom/common/product/overlay
+DEVICE_PACKAGE_OVERLAYS += $(BOARD_COMMON_DIR)/device/overlay
+PRODUCT_PACKAGE_OVERLAYS += $(BOARD_COMMON_DIR)/product/overlay
 
 # include additional build utilities
--include device/qcom/common/utils.mk
+-include $(BOARD_COMMON_DIR)/utils.mk
 
 #Enabling Ring Tones
 #include frameworks/base/data/sounds/OriginalAudio.mk

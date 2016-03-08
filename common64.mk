@@ -1,4 +1,4 @@
-$(call inherit-product, device/qcom/common/base.mk)
+$(call inherit-product, $(BOARD_COMMON_DIR)/base.mk)
 
 # For PRODUCT_COPY_FILES, the first instance takes precedence.
 # Since we want use QC specific files, we should inherit
@@ -20,7 +20,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.custom_ecc=1 \
     ro.frp.pst=/dev/block/bootdevice/by-name/config
 
-PRODUCT_PRIVATE_KEY := device/qcom/common/qcom.key
+PRODUCT_PRIVATE_KEY := $(BOARD_COMMON_DIR)/qcom.key
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 #$(call inherit-product, frameworks/base/data/fonts/fonts.mk)
