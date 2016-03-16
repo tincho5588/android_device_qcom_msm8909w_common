@@ -45,3 +45,5 @@ add_lunch_combo msm8909-userdebug
 add_lunch_combo msm8909_512-userdebug
 add_lunch_combo msm8909_LMT-userdebug
 add_lunch_combo msm8909w-userdebug
+
+export QCPATH="vendor/qcom/proprietary"
