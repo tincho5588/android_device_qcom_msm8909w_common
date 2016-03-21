@@ -1215,11 +1215,8 @@ case "$target" in
            soc_id=`cat /sys/devices/system/soc/soc0/id`
         fi
 
-	#Set mmcblk0 read_ahead value for 8909_512 target
-        ProductName=`getprop ro.product.name`
-	if [ "$ProductName" == "msm8909_512" ]; then
-		echo 128 > /sys/block/mmcblk0/queue/read_ahead_kb
-	fi
+        #Update mmcblk0 read_ahead value
+        echo 128 > /sys/block/mmcblk0/queue/read_ahead_kb
 
         #Enable adaptive LMK and set vmpressure_file_min
         ProductName=`getprop ro.product.name`
