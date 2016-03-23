@@ -1,27 +1,16 @@
 # Board platforms lists to be used for
 # TARGET_BOARD_PLATFORM specific featurization
-QCOM_BOARD_PLATFORMS += msm8974
-QCOM_BOARD_PLATFORMS += msm8610
-QCOM_BOARD_PLATFORMS += msm8226
-QCOM_BOARD_PLATFORMS += apq8084
-QCOM_BOARD_PLATFORMS += mpq8092
-QCOM_BOARD_PLATFORMS += msm_bronze
-QCOM_BOARD_PLATFORMS += msm8916
-QCOM_BOARD_PLATFORMS += msm8916_32
-QCOM_BOARD_PLATFORMS += msm8916_32_512
-QCOM_BOARD_PLATFORMS += msm8916_64
-QCOM_BOARD_PLATFORMS += msm8994
 QCOM_BOARD_PLATFORMS += msm8909
 QCOM_BOARD_PLATFORMS += msm8909_512
 QCOM_BOARD_PLATFORMS += msm8909w
 
 QSD8K_BOARD_PLATFORMS := qsd8k
 
-TARGET_USE_VENDOR_CAMERA_EXT := true
+TARGET_USE_VENDOR_CAMERA_EXT := false
 ANDROID_COMPILE_WITH_JACK := false
 
 #List of targets that use video hw
-MSM_VIDC_TARGET_LIST := msm8974 msm8610 msm8226 apq8084 msm8916 msm8994 msm8909
+#MSM_VIDC_TARGET_LIST := msm8974 msm8610 msm8226 apq8084 msm8916 msm8994 msm8909
 
 # Below projects/packages with LOCAL_MODULEs will be used by
 # PRODUCT_PACKAGES to build LOCAL_MODULEs that are tagged with
@@ -30,36 +19,10 @@ MSM_VIDC_TARGET_LIST := msm8974 msm8610 msm8226 apq8084 msm8916 msm8994 msm8909
 # in CAPs.
 
 #ALSA
-ALSA_HARDWARE := alsa.msm8960
-ALSA_HARDWARE += alsa.msm8974
-ALSA_HARDWARE += alsa.msm8226
-ALSA_HARDWARE += alsa.msm8610
-ALSA_HARDWARE += alsa.apq8084
-
 ALSA_UCM := snd_soc_msm
 ALSA_UCM += snd_soc_msm_2x
-ALSA_UCM += snd_soc_msm_2x_mpq
-ALSA_UCM += snd_soc_msm_2x_Fusion3
-ALSA_UCM += snd_soc_msm_Sitar
 ALSA_UCM += snd_soc_msm_auxpcm
 ALSA_UCM += snd_soc_msm_2x_auxpcm
-ALSA_UCM += snd_soc_msm_2x_mpq_auxpcm
-ALSA_UCM += snd_soc_msm_2x_Fusion3_auxpcm
-ALSA_UCM += snd_soc_msm_Sitar_auxpcm
-ALSA_UCM += snd_soc_msm_Taiko
-ALSA_UCM += snd_soc_msm_Taiko_CDP
-ALSA_UCM += snd_soc_msm_Taiko_Fluid
-ALSA_UCM += snd_soc_msm_Taiko_liquid
-ALSA_UCM += snd_soc_apq_Taiko_DB
-ALSA_UCM += snd_soc_msm_I2SFusion
-ALSA_UCM += snd_soc_msm_Tapan
-ALSA_UCM += snd_soc_msm_TapanLite
-ALSA_UCM += snd_soc_msm_Tapan_SKUF
-ALSA_UCM += snd_soc_msm_TapanLite_SKUF
-ALSA_UCM += snd_soc_msm_8x10_wcd
-ALSA_UCM += snd_soc_msm_8x10_wcd_skuab
-ALSA_UCM += snd_soc_msm_8x10_wcd_skuaa
-ALSA_UCM += snd_soc_msm_samarium_Tapan
 
 #ANGLE
 ANGLE := libangle
@@ -67,44 +30,15 @@ ANGLE := libangle
 #APPOPS_POLICY
 APPOPS_POLICY := appops_policy.xml
 
-AUDIO_HARDWARE := audio.primary.mpq8064
-AUDIO_HARDWARE += audio.primary.apq8084
-AUDIO_HARDWARE += audio.primary.msm8960
-AUDIO_HARDWARE += audio.primary.msm8974
-AUDIO_HARDWARE += audio.primary.msm8226
-AUDIO_HARDWARE += audio.primary.msm8660
-AUDIO_HARDWARE += audio.primary.msm8610
-#AUDIO_HARDWARE += audio.primary.msm7627_surf
-AUDIO_HARDWARE += audio.primary.msm7627a
-AUDIO_HARDWARE += audio.primary.msm7630_surf
-AUDIO_HARDWARE += audio.primary.msm7630_fusion
-#AUDIO_HARDWARE += audio.primary.default
+AUDIO_HARDWARE += audio.primary.default
 AUDIO_HARDWARE += audio.a2dp.default
 AUDIO_HARDWARE += audio.usb.default
 AUDIO_HARDWARE += audio.r_submix.default
-AUDIO_HARDWARE += audio.primary.mpq8092
-AUDIO_HARDWARE += audio.primary.msm8916
 AUDIO_HARDWARE += audio.primary.msm8909
-AUDIO_HARDWARE += audio.primary.msm8994
 #
-AUDIO_POLICY := audio_policy.mpq8064
-AUDIO_POLICY += audio_policy.apq8084
-AUDIO_POLICY += audio_policy.msm8960
-AUDIO_POLICY += audio_policy.msm8974
-AUDIO_POLICY += audio_policy.msm8226
-AUDIO_POLICY += audio_policy.msm8660
-AUDIO_POLICY += audio_policy.msm8610
-AUDIO_POLICY += audio_policy.mpq8092
-#AUDIO_POLICY += audio_policy.msm7627_surf
-AUDIO_POLICY += audio_policy.msm7627a
-AUDIO_POLICY += audio_policy.msm7630_surf
-AUDIO_POLICY += audio_policy.msm7630_fusion
-#AUDIO_POLICY += audio_policy.default
+AUDIO_POLICY += audio_policy.default
 AUDIO_POLICY += audio_policy.conf
-AUDIO_POLICY += audio_policy_8064.conf
-AUDIO_POLICY += audio_policy.msm8916
 AUDIO_POLICY += audio_policy.msm8909
-AUDIO_POLICY += audio_policy.msm8994
 
 #tinyalsa test apps
 TINY_ALSA_TEST_APPS := tinyplay
@@ -185,10 +119,6 @@ EBTABLES += libebtc
 #FASTPOWERON
 FASTPOWERON := FastBoot
 
-#FM
-FM := qcom.fmradio
-FM += libqcomfm_jni
-FM += libfmjni
 
 #GPS
 GPS_HARDWARE := gps.conf
@@ -198,9 +128,6 @@ GPS_HARDWARE += libloc_adapter
 GPS_HARDWARE += libgps.utils
 GPS_HARDWARE += libloc_eng
 GPS_HARDWARE += libloc_api_v02
-
-#HDMID
-HDMID := hdmid
 
 #HOSTAPD
 HOSTAPD := hostapd
@@ -314,45 +241,8 @@ LIB_NL := libnl_2
 #LIB_XML2
 LIB_XML2 := libxml2
 
-#LIBCAMERA
-LIBCAMERA := camera.apq8084
-LIBCAMERA += camera.msm8974
-LIBCAMERA += camera.msm8226
-LIBCAMERA += camera.msm8610
-LIBCAMERA += camera.msm8960
-LIBCAMERA += camera.msm8660
-LIBCAMERA += camera.msm7630_surf
-LIBCAMERA += camera.msm7630_fusion
-LIBCAMERA += camera.msm7627a
-LIBCAMERA += camera.msm8916
-LIBCAMERA += camera.msm8994
-LIBCAMERA += camera.msm8909
-LIBCAMERA += libcamera
-LIBCAMERA += libmmcamera_interface
-LIBCAMERA += libmmcamera_interface2
-LIBCAMERA += libmmjpeg_interface
-LIBCAMERA += libqomx_core
-LIBCAMERA += mm-qcamera-app
-LIBCAMERA += camera_test
-LIBCAMERA += org.codeaurora.camera
-
 #LIBCOPYBIT
-LIBCOPYBIT := copybit.msm8660
-LIBCOPYBIT += copybit.msm8960
-LIBCOPYBIT += copybit.msm8974
-LIBCOPYBIT += copybit.msm8226
-LIBCOPYBIT += copybit.msm8610
 LIBCOPYBIT += copybit.msm8909
-LIBCOPYBIT += copybit.msm8916
-LIBCOPYBIT += copybit.msm8994
-LIBCOPYBIT += copybit.apq8084
-LIBCOPYBIT += copybit.msm7k
-LIBCOPYBIT += copybit.qsd8k
-LIBCOPYBIT += copybit.msm7630_surf
-LIBCOPYBIT += copybit.msm7630_fusion
-LIBCOPYBIT += copybit.msm7627_surf
-LIBCOPYBIT += copybit.msm7627_6x
-LIBCOPYBIT += copybit.msm7627a
 
 #LIBGESTURES
 LIBGESTURES := libgestures
@@ -360,69 +250,15 @@ LIBGESTURES += gestures.msm8960
 
 #LIBGRALLOC
 LIBGRALLOC := gralloc.default
-LIBGRALLOC += gralloc.msm8660
-LIBGRALLOC += gralloc.msm8960
-LIBGRALLOC += gralloc.msm8974
-LIBGRALLOC += gralloc.msm8226
-LIBGRALLOC += gralloc.msm8610
 LIBGRALLOC += gralloc.msm8909
-LIBGRALLOC += gralloc.msm8916
-LIBGRALLOC += gralloc.msm8994
-LIBGRALLOC += gralloc.apq8084
-LIBGRALLOC += gralloc.mpq8092
-LIBGRALLOC += gralloc.msm7k
-LIBGRALLOC += gralloc.msm7630_surf
-LIBGRALLOC += gralloc.msm7630_fusion
-LIBGRALLOC += gralloc.msm7627_surf
-LIBGRALLOC += gralloc.msm7627_6x
-LIBGRALLOC += gralloc.msm7627a
 LIBGRALLOC += libmemalloc
 
 #memtrack
 LIBMEMTRACK := memtrack.default
-LIBMEMTRACK += memtrack.msm8974
-LIBMEMTRACK += memtrack.msm8226
 LIBMEMTRACK += memtrack.msm8909
-LIBMEMTRACK += memtrack.msm8916
-LIBMEMTRACK += memtrack.msm8994
-LIBMEMTRACK += memtrack.msm8610
-LIBMEMTRACK += memtrack.apq8084
-LIBMEMTRACK += memtrack.mpq8092
-
-#LIBLIGHTS
-LIBLIGHTS := lights.msm8660
-LIBLIGHTS += lights.msm8960
-LIBLIGHTS += lights.msm8974
-LIBLIGHTS += lights.msm8226
-LIBLIGHTS += lights.msm8909
-LIBLIGHTS += lights.msm8916
-LIBLIGHTS += lights.msm8994
-LIBLIGHTS += lights.msm7k
-LIBLIGHTS += lights.msm7630_surf
-LIBLIGHTS += lights.msm7630_fusion
-LIBLIGHTS += lights.msm7627_surf
-LIBLIGHTS += lights.msm7627_6x
-LIBLIGHTS += lights.msm7627a
-LIBLIGHTS += lights.msm8610
-LIBLIGHTS += lights.apq8084
 
 #LIBHWCOMPOSER
-LIBHWCOMPOSER := hwcomposer.msm8660
-LIBHWCOMPOSER += hwcomposer.msm8960
-LIBHWCOMPOSER += hwcomposer.msm8974
-LIBHWCOMPOSER += hwcomposer.msm8226
-LIBHWCOMPOSER += hwcomposer.msm8610
 LIBHWCOMPOSER += hwcomposer.msm8909
-LIBHWCOMPOSER += hwcomposer.msm8916
-LIBHWCOMPOSER += hwcomposer.msm8994
-LIBHWCOMPOSER += hwcomposer.apq8084
-LIBHWCOMPOSER += hwcomposer.mpq8092
-LIBHWCOMPOSER += hwcomposer.msm7k
-LIBHWCOMPOSER += hwcomposer.msm7630_surf
-LIBHWCOMPOSER += hwcomposer.msm7630_fusion
-LIBHWCOMPOSER += hwcomposer.msm7627_surf
-LIBHWCOMPOSER += hwcomposer.msm7627_6x
-LIBHWCOMPOSER += hwcomposer.msm7627a
 
 #LIBAUDIOPARAM -- Exposing AudioParameter as dynamic library for SRS TruMedia to work
 LIBAUDIOPARAM := libaudioparameter
@@ -478,24 +314,6 @@ MM_AUDIO += libOmxAc3HwDec
 MM_CORE := libmm-omxcore
 MM_CORE += libOmxCore
 
-#MM_VIDEO
-MM_VIDEO := ast-mm-vdec-omx-test
-MM_VIDEO += libdivxdrmdecrypt
-MM_VIDEO += libavenhancements
-MM_VIDEO += liblasic
-MM_VIDEO += libOmxSwVencMpeg4
-MM_VIDEO += libOmxVdec
-MM_VIDEO += libOmxVdecHevc
-MM_VIDEO += libOmxVdpp
-MM_VIDEO += libOmxVenc
-MM_VIDEO += libOmxVidEnc
-MM_VIDEO += libstagefrighthw
-MM_VIDEO += mm-vdec-omx-property-mgr
-MM_VIDEO += mm-vdec-omx-test
-MM_VIDEO += mm-venc-omx-test
-MM_VIDEO += mm-venc-omx-test720p
-MM_VIDEO += mm-video-driver-test
-MM_VIDEO += mm-video-encdrv-test
 
 #OPENCORE
 OPENCORE := libomx_aacdec_sharedlibrary
@@ -538,10 +356,6 @@ RF4CE += rf4ce
 SENSORS_HARDWARE := sensors.msm7630_surf
 SENSORS_HARDWARE += sensors.msm7630_fusion
 
-#SOFTAP
-SOFTAP := libQWiFiSoftApCfg
-SOFTAP += libqsap_sdk
-
 #STK
 STK := Stk
 
@@ -582,25 +396,11 @@ ZLIB += libunz
 CHARGER := charger
 CHARGER += charger_res_images
 
-#VT_JNI
-VT_JNI := libvt_jni
-VT_JNI += libimscamera_jni
-
-# VT QTI Permissions
-VT_QTI_PERMISSIONS := qti_permissions.xml
-
 #IMS SETTINGS
 IMS_SETTINGS := imssettings
 
 #IMS Extension module for Android Telephony
 IMS_EXT := ims-ext-common
-
-#RCS
-#RCS := rcs_service_aidl
-#RCS += rcs_service_aidl.xml
-#RCS += rcs_service_aidl_static
-#RCS += rcs_service_api
-#RCS += rcs_service_api.xml
 
 #CRDA
 CRDA := crda
@@ -627,7 +427,6 @@ PRODUCT_PACKAGES := \
     Email \
     Gallery2 \
     LatinIME \
-    Mms \
     Music \
     Phone \
     Provision \
@@ -671,16 +470,12 @@ PRODUCT_PACKAGES += $(CONNECTIVITY)
 PRODUCT_PACKAGES += $(CHARGER)
 PRODUCT_PACKAGES += $(CURL)
 PRODUCT_PACKAGES += $(CM)
-#PRODUCT_PACKAGES += $(RCS)
-PRODUCT_PACKAGES += $(DASH)
 PRODUCT_PACKAGES += $(DATA_OS)
 PRODUCT_PACKAGES += $(E2FSPROGS)
 PRODUCT_PACKAGES += $(EBTABLES)
 PRODUCT_PACKAGES += $(EXTENDEDMEDIA_EXT)
 PRODUCT_PACKAGES += $(FASTPOWERON)
-#PRODUCT_PACKAGES += $(FM)
 PRODUCT_PACKAGES += $(GPS_HARDWARE)
-#PRODUCT_PACKAGES += $(HDMID)
 PRODUCT_PACKAGES += $(HOSTAPD)
 PRODUCT_PACKAGES += $(I420CC)
 PRODUCT_PACKAGES += $(INIT)
@@ -691,8 +486,7 @@ PRODUCT_PACKAGES += $(KEYPAD)
 PRODUCT_PACKAGES += $(KS)
 PRODUCT_PACKAGES += $(LIB_NL)
 PRODUCT_PACKAGES += $(LIB_XML2)
-#PRODUCT_PACKAGES += $(LIBCAMERA)
-#PRODUCT_PACKAGES += $(LIBGESTURES)
+PRODUCT_PACKAGES += $(LIBGESTURES)
 PRODUCT_PACKAGES += $(LIBCOPYBIT)
 PRODUCT_PACKAGES += $(LIBGRALLOC)
 PRODUCT_PACKAGES += $(LIBMEMTRACK)
@@ -712,13 +506,11 @@ PRODUCT_PACKAGES += $(LOC_API)
 PRODUCT_PACKAGES += $(MEDIA_PROFILES)
 PRODUCT_PACKAGES += $(MM_AUDIO)
 PRODUCT_PACKAGES += $(MM_CORE)
-#PRODUCT_PACKAGES += $(MM_VIDEO)
 PRODUCT_PACKAGES += $(OPENCORE)
+PRODUCT_PACKAGES += $(PVOMX)
 PRODUCT_PACKAGES += $(PPP)
-#PRODUCT_PACKAGES += $(PVOMX)
 PRODUCT_PACKAGES += $(RF4CE)
 PRODUCT_PACKAGES += $(SENSORS_HARDWARE)
-PRODUCT_PACKAGES += $(SOFTAP)
 PRODUCT_PACKAGES += $(STK)
 PRODUCT_PACKAGES += $(STMLOG)
 PRODUCT_PACKAGES += $(TSLIB_EXTERNAL)
