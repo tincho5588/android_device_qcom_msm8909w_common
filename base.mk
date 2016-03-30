@@ -242,7 +242,7 @@ LIB_NL := libnl_2
 LIB_XML2 := libxml2
 
 #LIBCOPYBIT
-LIBCOPYBIT += copybit.msm8909
+LIBCOPYBIT := copybit.msm8909
 
 #LIBGESTURES
 LIBGESTURES := libgestures
@@ -258,10 +258,10 @@ LIBMEMTRACK := memtrack.default
 LIBMEMTRACK += memtrack.msm8909
 
 #LIBLIGHTS
-LIBLIGHTS += lights.msm8909
+LIBLIGHTS := lights.msm8909
 
 #LIBHWCOMPOSER
-LIBHWCOMPOSER += hwcomposer.msm8909
+LIBHWCOMPOSER := hwcomposer.msm8909
 
 #LIBAUDIOPARAM -- Exposing AudioParameter as dynamic library for SRS TruMedia to work
 LIBAUDIOPARAM := libaudioparameter
