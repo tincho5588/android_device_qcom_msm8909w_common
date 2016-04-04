@@ -18,12 +18,6 @@ ANDROID_COMPILE_WITH_JACK := false
 # explicitly list here. Where project corresponds to the vars here
 # in CAPs.
 
-#ALSA
-ALSA_UCM := snd_soc_msm
-ALSA_UCM += snd_soc_msm_2x
-ALSA_UCM += snd_soc_msm_auxpcm
-ALSA_UCM += snd_soc_msm_2x_auxpcm
-
 #ANGLE
 ANGLE := libangle
 
@@ -308,10 +302,7 @@ MEDIA_PROFILES := media_profiles.xml
 MM_AUDIO := libOmxAacDec
 MM_AUDIO += libOmxAacEnc
 MM_AUDIO += libOmxAmrEnc
-MM_AUDIO += libOmxEvrcEnc
 MM_AUDIO += libOmxMp3Dec
-MM_AUDIO += libOmxQcelp13Enc
-MM_AUDIO += libOmxAc3HwDec
 
 #MM_CORE
 MM_CORE := libmm-omxcore
