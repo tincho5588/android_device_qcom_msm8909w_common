@@ -421,6 +421,7 @@ PRODUCT_PACKAGES := \
     Email \
     Gallery2 \
     LatinIME \
+    Mms \
     Music \
     Phone \
     Provision \
