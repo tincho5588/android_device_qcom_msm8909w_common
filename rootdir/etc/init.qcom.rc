@@ -288,6 +288,8 @@ on post-fs-data
     # Sensor
     mkdir /persist/sensors 0770 system system
 
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+
     #Create FM dir for patchdownloader
     mkdir /data/misc/fm 0770 system system
     chmod 0770 /data/misc/fm
