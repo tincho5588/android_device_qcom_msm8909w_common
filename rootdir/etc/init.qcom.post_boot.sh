@@ -1219,9 +1219,32 @@ case "$target" in
         #Update mmcblk0 read_ahead value
         echo 128 > /sys/block/mmcblk0/queue/read_ahead_kb
 
-        echo "8192,11264,14336,17408,20480,26624" > /sys/module/lowmemorykiller/parameters/minfree
-        echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
-        echo 32768 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+        #Enable low_ram, adaptive LMK, zram and set vmpressure_file_min
+	echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+	echo 0 > /sys/module/process_reclaim/parameters/enable_process_reclaim
+	echo 100 > /proc/sys/vm/swappiness
+	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
+	MemTotal=${MemTotalStr:16:8}
+	if [ "$MemTotal" -le "524288" ]; then #512Mb target
+		setprop ro.config.low_ram true
+		echo "8192,11264,14336,17408,20480,26624" > /sys/module/lowmemorykiller/parameters/minfree
+		echo 32768 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+		echo 268435456 > /sys/block/zram0/disksize
+		mkswap /dev/block/zram0
+		swapon /dev/block/zram0
+	elif  [ "$MemTotal" -le "786432" ] && [ $MemTotal -gt "524288" ]; then #768MB target
+		echo "12288,15360,18432,21504,24576,30720" > /sys/module/lowmemorykiller/parameters/minfree
+		echo 36864 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+		echo 402653184 > /sys/block/zram0/disksize
+		mkswap /dev/block/zram0
+		swapon /dev/block/zram0
+	else #1GB target
+		echo "15360,19200,23040,26880,34415,43737" > /sys/module/lowmemorykiller/parameters/minfree
+		echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+		echo 536870912 > /sys/block/zram0/disksize
+		mkswap /dev/block/zram0
+		swapon /dev/block/zram0
+	fi
 
         # HMP scheduler settings for 8909 similiar to 8916
         #echo 3 > /proc/sys/kernel/sched_window_stats_policy
