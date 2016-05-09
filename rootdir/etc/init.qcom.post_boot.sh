@@ -1223,6 +1223,7 @@ case "$target" in
 	echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 	echo 0 > /sys/module/process_reclaim/parameters/enable_process_reclaim
 	echo 100 > /proc/sys/vm/swappiness
+	echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
 	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 	MemTotal=${MemTotalStr:16:8}
 	if [ "$MemTotal" -le "524288" ]; then #512Mb target
